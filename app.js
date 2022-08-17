@@ -34,10 +34,6 @@ timeList.addEventListener('click', event =>{
     }
 })
 
-
-//debug
-startGame()
-
 function startGame () {
    setInterval(decreaseTime, 1000)
    createRandomCircle()
@@ -66,6 +62,7 @@ function finishGame () {
 board.innerHTML = `<h1>Ваш счет: ${score}</h1>`
 }
 
+
 function createRandomCircle() {
     const circle = document.createElement('div')
     
@@ -78,20 +75,39 @@ function createRandomCircle() {
     circle.style.width = `${size}px`
     circle.style.height = `${size}px`
     circle.style.top = `${x}px`
-    circle.style.left = `${x}px`
+    circle.style.left = `${y}px`
   
     board.append(circle)
-}    
+} 
 
-function setColor(element) {
-    const color = getRandomColor()
-    element.style.backgroundColor = color
-    element.style.boxShadow = `0 0 2px ${color}, 0 0 100px ${color}`
-}
-function getRandomColor() {
-    const index = Math.floor(Math.random() *colors.length)
-    return colors[index]
-   }
+ // circle.addEventListener('click', () => setColor(circle))
+
+// function getRandomColortoCircle() {
+   
+//     circle.classList.add('circle');
+//     circle.addEventListener('click', () => setColor(circle))
+//      circle.addEventListener('click', () => removeColor(circle))
+//      circle.append(circle)
+// }
+
+// function setColor(element) {
+//     const color = getRandomColor()
+//     element.style.backgroundColor = color
+//     element.style.boxShadow = `0 0 2px ${color}, 0 0 100px ${color}`
+    
+// }
+
+// function getRandomColor() {
+//  const index = Math.floor(Math.random() *colors.length)
+//  return colors[index]
+// }
+
+// function setColor(element) {
+//     const color = getRandomColor()
+//     element.style.backgroundColor = color
+// }
+
+
 function getRandomNumber(min, max) {
 return Math.round(Math.random() * (max - min) + min)
 }
